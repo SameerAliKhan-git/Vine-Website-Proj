@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>%VITE_SITE_NAME% — A place to grow</title>
+    <meta name="description" content="%VITE_SITE_DESCRIPTION%" />
+    <meta name="theme-color" content="#141a45" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+
+    <!-- Link previews (WhatsApp, Facebook, X, iMessage). These crawlers don't run JavaScript. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="%VITE_SITE_NAME%" />
+    <meta property="og:title" content="%VITE_SITE_NAME%" />
+    <meta property="og:description" content="%VITE_SITE_DESCRIPTION%" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts load without blocking the first paint (switched on in main.jsx). -->
+    <link
+      id="site-fonts"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+      media="print"
+    />
+    <link rel="preload" as="image" href="/logo-176.webp" type="image/webp" />
+    <style>
+      /* Preloader: shown instantly while the site's scripts download. */
+      #preloader {
+        position: fixed;
+        z-index: 1000;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: #f6f7fc;
+        transition: opacity 380ms ease, visibility 380ms ease;
+      }
+      #preloader.is-done {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .preloader__inner {
+        display: grid;
+        justify-items: center;
+        gap: 18px;
+        font-family: Georgia, "Times New Roman", serif;
+        color: #141a45;
+        text-align: center;
+      }
+      .preloader__logo {
+        position: relative;
+        width: 96px;
+        height: 96px;
+      }
+      .preloader__logo img {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        animation: preloader-breathe 1.8s ease-in-out infinite;
+      }
+      .preloader__logo::before {
+        position: absolute;
+        inset: -9px;
+        border: 2.5px solid transparent;
+        border-top-color: #41b8b0;
+        border-right-color: #6a3fa0;
+        border-radius: 50%;
+        content: "";
+        animation: preloader-spin 0.9s linear infinite;
+      }
+      .preloader__name {
+        margin: 4px 0 0;
+        font-size: 19px;
+        letter-spacing: -0.02em;
+      }
+      .preloader__slow {
+        max-width: 260px;
+        margin: 0;
+        color: #64687e;
+        font: 13px/1.5 system-ui, sans-serif;
+        opacity: 0;
+        animation: preloader-show 400ms ease 8s forwards;
+      }
+      @keyframes preloader-spin { to { transform: rotate(360deg); } }
+      @keyframes preloader-breathe { 50% { transform: scale(0.95); } }
+      @keyframes preloader-show { to { opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) {
+        .preloader__logo::before,
+        .preloader__logo img { animation-duration: 3s; }
+      }
+    </style>
+    <link rel="preconnect" href="%VITE_SUPABASE_URL%" crossorigin />
+  </head>
+  <body>
+    <noscript><style>#preloader { display: none; }</style></noscript>
+    <noscript>Please turn on JavaScript to view the %VITE_SITE_NAME% website.</noscript>
+    <div id="preloader" role="status" aria-live="polite">
+      <div class="preloader__inner">
+        <div class="preloader__logo"><img src="/logo-176.webp" alt="" width="96" height="96" /></div>
+        <p class="preloader__name">%VITE_SITE_NAME%</p>
+        <p class="preloader__slow">Still loading… a slow connection can take a few more seconds.</p>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,371 @@
+{
+ "live": {
+  "title": "",
+  "isLive": false,
+  "speaker": "",
+  "videoUrl": "",
+  "description": ""
+ },
+ "gallery": [
+  {
+   "id": "b96f1f52-4d12-4848-8032-661a4bfb4ccd",
+   "image": "/gallery/vine-06.webp",
+   "title": "Our church family"
+  },
+  {
+   "id": "7bf31580-5a2d-47d5-8867-9f70db187f4f",
+   "image": "/gallery/vine-21.webp",
+   "title": "Worship with hands raised"
+  },
+  {
+   "id": "a6600004-b57d-4592-9d5b-46b094164a60",
+   "image": "/gallery/vine-11.webp",
+   "title": "Christmas celebration"
+  },
+  {
+   "id": "ca8ba513-3e50-4d33-ae11-9440506d76cc",
+   "image": "/gallery/vine-20.webp",
+   "title": "House fellowship"
+  },
+  {
+   "id": "d5a27b42-364f-48ac-b49c-deac743b3be4",
+   "image": "/gallery/vine-05.webp",
+   "title": "Praise and worship"
+  },
+  {
+   "id": "8fd5be77-479c-4bc5-a0f3-40315481a2a6",
+   "image": "/gallery/vine-29.webp",
+   "title": "Women's fellowship"
+  },
+  {
+   "id": "712c1afe-07d5-4368-96df-638ef04b5cd8",
+   "image": "/gallery/vine-01.webp",
+   "title": "Cell group fellowship"
+  },
+  {
+   "id": "689a4cff-15fc-4639-9b4a-b9cb180d5631",
+   "image": "/gallery/vine-02.webp",
+   "title": "Celebration service"
+  },
+  {
+   "id": "ec63afc9-75be-4962-9fc4-0ee667cefd17",
+   "image": "/gallery/vine-03.webp",
+   "title": "Sunday service"
+  },
+  {
+   "id": "f0ed62f7-5dc2-4e89-bd4f-2fbf9ad004cf",
+   "image": "/gallery/vine-04.webp",
+   "title": "Prayer time"
+  },
+  {
+   "id": "c674438d-6359-426d-bbcf-6c82ecdc10b1",
+   "image": "/gallery/vine-07.webp",
+   "title": "Cell group in a home"
+  },
+  {
+   "id": "460ccf83-9cae-4625-b405-9659626f6207",
+   "image": "/gallery/vine-08.webp",
+   "title": "Kids praising God"
+  },
+  {
+   "id": "f220b236-92ce-42fb-bd09-b61438e82d19",
+   "image": "/gallery/vine-09.webp",
+   "title": "Sunday worship"
+  },
+  {
+   "id": "332809fe-65a3-4730-b6b0-29a33bfa06d1",
+   "image": "/gallery/vine-10.webp",
+   "title": "Cell group family"
+  },
+  {
+   "id": "3c35b44a-4a8f-4205-b9bb-75f940654bd9",
+   "image": "/gallery/vine-12.webp",
+   "title": "Christmas with the church family"
+  },
+  {
+   "id": "93468f7c-64b6-4169-a120-3185c11c463c",
+   "image": "/gallery/vine-13.webp",
+   "title": "Sunday service"
+  },
+  {
+   "id": "2d1ef5c2-4cf9-463f-9984-af6fe894dd49",
+   "image": "/gallery/vine-14.webp",
+   "title": "The Word preached"
+  },
+  {
+   "id": "55ff3114-ba80-4ea5-9ee4-020232e4f3d4",
+   "image": "/gallery/vine-15.webp",
+   "title": "Youth at Vine India"
+  },
+  {
+   "id": "a87b3568-8aa0-45ef-8f66-781c09bf7af7",
+   "image": "/gallery/vine-16.webp",
+   "title": "Worship together"
+  },
+  {
+   "id": "801c1084-32da-46d8-9953-6a30d8f34c2a",
+   "image": "/gallery/vine-17.webp",
+   "title": "Joyful worship"
+  },
+  {
+   "id": "47cffcb7-71fa-43fc-906f-38fa0f870a7a",
+   "image": "/gallery/vine-18.webp",
+   "title": "Christmas with the cell group"
+  },
+  {
+   "id": "86cf2c32-0559-470a-99d5-e84385ff4def",
+   "image": "/gallery/vine-19.webp",
+   "title": "Children's time"
+  },
+  {
+   "id": "328b6d87-fb2d-4713-81ee-3e35eafa66d0",
+   "image": "/gallery/vine-22.webp",
+   "title": "Prayer meeting"
+  },
+  {
+   "id": "e8d73047-3985-4b3f-83c8-762c1e85ac2e",
+   "image": "/gallery/vine-23.webp",
+   "title": "Cell group prayer"
+  },
+  {
+   "id": "a3b0515a-30e0-4dce-a360-898c8c0e97d7",
+   "image": "/gallery/vine-24.webp",
+   "title": "Family fellowship"
+  },
+  {
+   "id": "d0ed3597-29d0-4006-890c-543b1aba4b21",
+   "image": "/gallery/vine-25.webp",
+   "title": "Home visit"
+  },
+  {
+   "id": "f1efe7be-536e-4747-a137-a1d4776d7316",
+   "image": "/gallery/vine-26.webp",
+   "title": "Sunday worship"
+  },
+  {
+   "id": "46e6a868-fcac-4b09-96b5-edaaa54601d7",
+   "image": "/gallery/vine-27.webp",
+   "title": "Celebration service"
+  },
+  {
+   "id": "4b3e9fe7-0b06-4abf-92bd-abff136af695",
+   "image": "/gallery/vine-28.webp",
+   "title": "Praise and worship"
+  },
+  {
+   "id": "99103f95-ee53-41b7-8676-93f5f24ee10f",
+   "image": "/gallery/vine-30.webp",
+   "title": "Worship"
+  },
+  {
+   "id": "92d1639f-e7eb-4ce3-a165-2d3c19467bef",
+   "image": "/gallery/vine-31.webp",
+   "title": "Kids worship"
+  },
+  {
+   "id": "2e8a31eb-5cc0-48fe-bc29-5cbf063e869c",
+   "image": "/gallery/vine-32.webp",
+   "title": "Prayer meeting"
+  },
+  {
+   "id": "7202a731-d2cd-42ee-942f-c560a64cfe62",
+   "image": "/gallery/vine-33.webp",
+   "title": "Evening revival worship"
+  },
+  {
+   "id": "abe92a27-f08a-40ef-ac07-f9fe1d4e7a21",
+   "image": "/gallery/vine-34.webp",
+   "title": "Evening worship"
+  }
+ ],
+ "leaders": [],
+ "youtube": {
+  "count": 15,
+  "lastSync": "2026-11-22T14:52:02.518Z",
+  "channelId": "UCC7vPhpje0mwTL-9Uc_tpYg",
+  "configKey": "UCC7vPhpje0mwTL-9Uc_tpYg|",
+  "sourceKey": "channel:UCC7vPhpje0mwTL-9Uc_tpYg",
+  "playlistId": ""
+ },
+ "sessions": [
+  {
+   "id": "75e6fa5a-0f86-40de-a816-079304e7123c",
+   "title": "Sunday Service · Jawahar Nagar",
+   "speaker": "",
+   "startsAt": "2026-11-22T09:00",
+   "streamUrl": "",
+   "description": "9:00 – 11:30 AM at Jawahar Nagar, Chanda Nagar, Hyderabad.",
+   "repeatWeekly": true
+  },
+  {
+   "id": "bede61aa-30ae-4fc6-bdd8-ab3cfcfc8d0f",
+   "title": "Sunday Service · Ashok Nagar",
+   "speaker": "",
+   "startsAt": "2026-11-22T13:00",
+   "streamUrl": "",
+   "description": "1:00 – 2:30 PM at Ashok Nagar, R.C. Puram, Hyderabad.",
+   "repeatWeekly": true
+  },
+  {
+   "id": "05bf9a40-b1dd-4f73-a8d7-bda591b04fa6",
+   "title": "Sunday Service · Narsingi",
+   "speaker": "",
+   "startsAt": "2026-11-22T19:00",
+   "streamUrl": "",
+   "description": "7:00 – 9:00 PM at Narsingi, Papannapet, Medak.",
+   "repeatWeekly": true
+  }
+ ],
+ "settings": {
+  "name": "Vine India",
+  "email": "vineindia07@gmail.com",
+  "phone": "+91 95738 01325",
+  "upiId": "",
+  "address": "Jawahar Nagar, Chanda Nagar, Hyderabad, Telangana",
+  "beliefs": [],
+  "logoUrl": "",
+  "tagline": "Every believer a minister. Every house an extension of the church. Winning our generation for Christ through cell groups.",
+  "bankIfsc": "SBIN0011664",
+  "bankName": "State Bank of India",
+  "location": "Hyderabad, India",
+  "timeZone": "Asia/Kolkata",
+  "whatsapp": "",
+  "heroImage": "",
+  "aboutStory": "Vine India is a cell-based church family serving Hyderabad and Medak. Every Sunday we gather in three places: Jawahar Nagar (Chanda Nagar), Ashok Nagar (R.C. Puram) and Narsingi (Papannapet). During the week, from Wednesday to Friday, we meet in homes through our cell groups.\nWe believe every believer is a minister and every house is an extension of the church. Whatever your story, there is a place for you here.",
+  "bankBranch": "",
+  "upiQrImage": "",
+  "youtubeUrl": "https://www.youtube.com/channel/UCC7vPhpje0mwTL-9Uc_tpYg",
+  "aboutVision": "Our vision is to build a church of overcomers and every believer is a minister and every house is an extension of the church, and winning our generation for Christ through cell groups!",
+  "facebookUrl": "https://www.facebook.com/VINEINDIAOFFICIAL",
+  "givingIntro": "Thank you for partnering with us. Every gift helps us care for one another and serve our city.",
+  "mapEmbedUrl": "https://www.google.com/maps?q=Jawahar+Nagar,+Chanda+Nagar,+Hyderabad,+Telangana&output=embed",
+  "aboutMission": "మన దర్శనం విజయవంతమైన సంఘమును నిర్మించడం, మరియు సంఘములో ప్రతి విశ్వాసి సేవకుడే మరియు ప్రతి గృహము సంఘములో భాగమే మరియు ఈ తరమును క్రీస్తు కొరకు సెల్ గ్రూప్ ద్వారా జయించుట.",
+  "instagramUrl": "https://www.instagram.com/vineindiaofficial/",
+  "prayerPhones": "+91 95738 01325, +91 94949 50248, +91 99483 95991",
+  "serviceTimes": [
+   {
+    "day": "Sunday",
+    "time": "9:00 AM – 11:30 AM",
+    "label": "Sunday service",
+    "place": "Jawahar Nagar, Chanda Nagar, Hyderabad"
+   },
+   {
+    "day": "Sunday",
+    "time": "1:00 PM – 2:30 PM",
+    "label": "Sunday service",
+    "place": "Ashok Nagar, R.C. Puram, Hyderabad"
+   },
+   {
+    "day": "Sunday",
+    "time": "7:00 PM – 9:00 PM",
+    "label": "Sunday service",
+    "place": "Narsingi, Papannapet, Medak"
+   },
+   {
+    "day": "Wednesday – Friday",
+    "time": "7:00 PM – 9:00 PM",
+    "label": "Cell groups",
+    "place": "In homes near you"
+   },
+   {
+    "day": "Saturday",
+    "time": "8:00 PM – 10:00 PM",
+    "label": "Worship practice",
+    "place": ""
+   },
+   {
+    "day": "Every day",
+    "time": "4:00 PM – 7:00 PM",
+    "label": "Visiting hours",
+    "place": ""
+   }
+  ],
+  "bankAccountName": "",
+  "announcementLink": "/activities",
+  "announcementText": "3-day revival meetings in Narsingi · 18–20 December, 6:00–9:00 PM",
+  "mapDirectionsUrl": "https://www.google.com/maps/search/?api=1&query=Jawahar+Nagar%2C+Chanda+Nagar%2C+Hyderabad",
+  "registrationNote": "",
+  "youtubeChannelId": "UCC7vPhpje0mwTL-9Uc_tpYg",
+  "bankAccountNumber": "20377071053",
+  "youtubePlaylistId": "",
+  "announcementEnabled": true,
+  "announcementLinkText": "See details",
+  "messageRetentionMonths": 12
+ },
+ "activities": [
+  {
+   "id": "f30ac53b-9068-42eb-9781-f58f3c71a776",
+   "date": "2026-12-18",
+   "time": "6:00 PM – 9:00 PM · 18, 19 & 20 December",
+   "image": "/gallery/vine-26.webp",
+   "title": "3-Day Revival Meetings",
+   "category": "Revival",
+   "featured": true,
+   "location": "Narsingi, Papannapet, Medak",
+   "description": "Three evenings of worship, the Word and prayer in Narsingi. Come expecting God to move, and bring your family and friends.",
+   "registrationUrl": ""
+  },
+  {
+   "id": "4eb7c6c9-36f0-4806-9ae3-edd8697c8c03",
+   "date": "2026-12-18",
+   "time": "10:00 AM – 1:00 PM",
+   "image": "/gallery/vine-29.webp",
+   "title": "Women's Meeting",
+   "category": "Women",
+   "featured": false,
+   "location": "Narsingi, Papannapet, Medak",
+   "description": "A morning of worship, encouragement and prayer for women, during the revival meetings.",
+   "registrationUrl": ""
+  },
+  {
+   "id": "b74e0d78-efcd-4c7d-845d-af33e259f78a",
+   "date": "2026-12-19",
+   "time": "10:00 AM – 1:00 PM",
+   "image": "/gallery/vine-13.webp",
+   "title": "Youth Meeting",
+   "category": "Youth",
+   "featured": false,
+   "location": "Narsingi, Papannapet, Medak",
+   "description": "A morning for young people to worship, grow in faith and stand strong for Christ, during the revival meetings.",
+   "registrationUrl": ""
+  }
+ ],
+ "ministries": [
+  {
+   "id": "9dcc019f-5292-49b0-b76c-b4ba4196f342",
+   "image": "/gallery/vine-20.webp",
+   "title": "Cell Groups",
+   "leader": "",
+   "category": "Every house a church",
+   "schedule": "Wednesday – Friday, 7:00 – 9:00 PM",
+   "description": "Small groups that meet in homes across the city to worship, study the Bible, pray and care for one another. Every house is an extension of the church."
+  },
+  {
+   "id": "77407281-b24b-46b8-9f2c-bd9119b5ba27",
+   "image": "/gallery/vine-28.webp",
+   "title": "Worship",
+   "leader": "",
+   "category": "Lifting His name",
+   "schedule": "Practice: Saturdays, 8:00 – 10:00 PM",
+   "description": "Our worship team leads the church in praise every Sunday and prepares together each Saturday night."
+  },
+  {
+   "id": "2f3156b3-9c1c-452c-8547-50e9c74c74a6",
+   "image": "/gallery/vine-29.webp",
+   "title": "Women",
+   "leader": "",
+   "category": "Strong in faith",
+   "schedule": "",
+   "description": "Women encouraging one another in prayer, the Word and fellowship."
+  },
+  {
+   "id": "0cd6293d-c3d8-4a73-b834-a56604c452b9",
+   "image": "/gallery/vine-15.webp",
+   "title": "Youth",
+   "leader": "",
+   "category": "Winning our generation",
+   "schedule": "",
+   "description": "Young people growing in Christ together and reaching their generation with the good news."
+  }
+ ]
+}

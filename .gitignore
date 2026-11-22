@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+supabase/.temp/
+supabase/.branches/
+
+# Original full-size photos (processed copies live in public/photos and public/gallery)
+photos-original/
