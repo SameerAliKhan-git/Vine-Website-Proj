@@ -18,3 +18,6 @@ photos-original/
 .claude/settings.local.json
 # Agent-skill shortcuts point to absolute paths on one machine (the real files are in .agents/)
 .claude/skills/
+
+# Cloudflare Wrangler cache
+.wrangler
