@@ -1322,3 +1322,12 @@ code {
   font-size: 0.82rem;
   text-align: center;
 }
+
+/* Errors and notices on the sign-in cards must not inherit the muted paragraph colour. */
+.admin-login__card p.a-error {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  background: #fdecea;
+  color: #b42318;
+}

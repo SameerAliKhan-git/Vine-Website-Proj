@@ -13,3 +13,8 @@ supabase/.branches/
 
 # Original full-size photos (processed copies live in public/photos and public/gallery)
 photos-original/
+
+# Personal Claude Code settings
+.claude/settings.local.json
+# Agent-skill shortcuts point to absolute paths on one machine (the real files are in .agents/)
+.claude/skills/

@@ -147,6 +147,10 @@ export const teamApi = {
   setRole: (userId, role) => invoke("team", { action: "setRole", userId, role }),
   resetPassword: (userId) => invoke("team", { action: "resetPassword", userId }),
   remove: (userId) => invoke("team", { action: "remove", userId }),
+  /** True while the website has no admin yet (first-time setup). */
+  setupStatus: async () => Boolean((await invoke("team", { action: "setupStatus" }, publicClient))?.needsSetup),
+  /** Creates the very first admin; needs the SETUP_CODE set in the Supabase dashboard. */
+  bootstrap: (details) => invoke("team", { action: "bootstrap", ...details }, publicClient),
 };
 
 export const auth = {

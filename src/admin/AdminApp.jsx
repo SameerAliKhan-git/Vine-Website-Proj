@@ -22,7 +22,7 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { adminApi, auth } from "../lib/api.js";
+import { adminApi, auth, teamApi } from "../lib/api.js";
 import { useSite } from "../lib/SiteContext.jsx";
 import { authRedirect, supabase } from "../lib/supabase.js";
 import { ToastProvider } from "./toast.jsx";
@@ -60,7 +60,82 @@ function AuthCard({ title, children, onSubmit, icon = <img src="/logo.png" alt="
   );
 }
 
+/** One-time screen to create the church's first admin (needs the setup code). */
+function FirstAdminSetup({ onDone, onCancel }) {
+  const [form, setForm] = useState({ name: "", email: "", password: "", confirm: "", code: "" });
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  const set = (key) => (event) => setForm((f) => ({ ...f, [key]: event.target.value }));
+
+  async function submit(event) {
+    event.preventDefault();
+    if (form.password.length < MIN_PASSWORD) return setError(`Use a password of at least ${MIN_PASSWORD} characters.`);
+    if (form.password !== form.confirm) return setError("The passwords don’t match.");
+    setBusy(true);
+    setError("");
+    try {
+      await teamApi.bootstrap({ name: form.name, email: form.email, password: form.password, code: form.code });
+      await auth.signIn(form.email, form.password);
+      onDone();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <AuthCard title="Set up the first admin" onSubmit={submit} icon={<ShieldCheck size={44} className="admin-login__icon" aria-hidden="true" />}>
+      <p>This website doesn’t have an admin yet. Create the main admin account using the setup code from the Supabase dashboard.</p>
+      <label className="a-field">
+        <span>Your name</span>
+        <input className="a-input" autoComplete="name" value={form.name} onChange={set("name")} required />
+      </label>
+      <label className="a-field">
+        <span>Email</span>
+        <input className="a-input" type="email" autoComplete="username" value={form.email} onChange={set("email")} required />
+      </label>
+      <label className="a-field">
+        <span>Password ({MIN_PASSWORD}+ characters)</span>
+        <input className="a-input" type="password" autoComplete="new-password" value={form.password} onChange={set("password")} required />
+      </label>
+      <label className="a-field">
+        <span>Confirm password</span>
+        <input className="a-input" type="password" autoComplete="new-password" value={form.confirm} onChange={set("confirm")} required />
+      </label>
+      <label className="a-field">
+        <span>Setup code</span>
+        <input className="a-input" type="password" autoComplete="off" value={form.code} onChange={set("code")} required />
+      </label>
+      {error && <p className="a-error">{error}</p>}
+      <button className="a-btn a-btn--primary a-btn--block" type="submit" disabled={busy}>
+        {busy ? "Creating…" : "Create admin account"}
+      </button>
+      <button type="button" className="a-link" onClick={onCancel}>
+        Back to sign in
+      </button>
+    </AuthCard>
+  );
+}
+
 function Login({ onDone }) {
+  const [needsSetup, setNeedsSetup] = useState(false);
+  const [settingUp, setSettingUp] = useState(false);
+  useEffect(() => {
+    let active = true;
+    teamApi
+      .setupStatus()
+      .then((value) => active && setNeedsSetup(value))
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, []);
+  if (settingUp) return <FirstAdminSetup onDone={onDone} onCancel={() => setSettingUp(false)} />;
+  return <SignInForm onDone={onDone} onSetup={needsSetup ? () => setSettingUp(true) : null} />;
+}
+
+function SignInForm({ onDone, onSetup }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(authRedirect.error || "");
@@ -114,6 +189,14 @@ function Login({ onDone }) {
       <button type="button" className="a-link" onClick={forgot}>
         Forgot password?
       </button>
+      {onSetup && (
+        <p className="a-notice">
+          No admin account exists yet.{" "}
+          <button type="button" className="a-link" onClick={onSetup}>
+            Set up the first admin
+          </button>
+        </p>
+      )}
     </AuthCard>
   );
 }

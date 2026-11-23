@@ -122,11 +122,12 @@ Migrations are in `supabase/migrations/` and have already been applied to the li
 - Roles: an account is an **admin** if it's in `public.admins`, and a **member** if its
   `app_metadata.role` is `member` (only the server can set this). Managed by the `team`
   Edge Function.
-- **First admin (one time):** in the Supabase dashboard, open Authentication → Users →
-  Add user → Create new user (tick "Auto confirm"), then run
-  `select public.grant_admin('their@email.com');` in the SQL editor. After that, add
-  everyone else from the admin panel, and turn **off** "Allow new users to sign up"
-  (Authentication → Sign In / Providers).
+- **First admin (one time):** in the Supabase dashboard open Edge Functions → Secrets and add
+  `SETUP_CODE` (any private phrase, 8+ characters). Then open the website's Sign in page: while no
+  admin exists it shows **Set up the first admin**. Enter your name, email, a password and the
+  setup code. Once an admin exists, the setup screen disappears and the code stops working
+  (you can delete the secret). Then turn **off** "Allow new users to sign up"
+  (Authentication → Sign In / Providers) and add everyone else from the admin panel.
 
 ## YouTube
 

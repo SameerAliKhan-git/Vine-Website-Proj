@@ -8,6 +8,10 @@
 //
 // New accounts get a temporary password that the admin passes on; the person is asked
 // to choose their own password the first time they sign in.
+//
+// First admin: while there are no admins at all, "bootstrap" creates one, but only with
+// the SETUP_CODE secret that the website owner set in the Supabase dashboard. Once an
+// admin exists, bootstrap is refused for good.
 import { createClient } from "npm:@supabase/supabase-js@2.119.0";
 
 const URL_ = Deno.env.get("SUPABASE_URL")!;
@@ -45,6 +49,62 @@ async function callerFrom(req: Request) {
   if (!userData?.user) return null;
   const { data: isAdmin } = await asCaller.rpc("is_admin");
   return isAdmin ? userData.user : null;
+}
+
+/** Constant-time comparison of two strings (via their SHA-256 digests). */
+async function sameSecret(a: string, b: string) {
+  const enc = new TextEncoder();
+  const [x, y] = await Promise.all([crypto.subtle.digest("SHA-256", enc.encode(a)), crypto.subtle.digest("SHA-256", enc.encode(b))]);
+  const ax = new Uint8Array(x);
+  const ay = new Uint8Array(y);
+  let diff = 0;
+  for (let i = 0; i < ax.length; i++) diff |= ax[i] ^ ay[i];
+  return diff === 0;
+}
+
+async function findUserByEmail(email: string) {
+  for (let page = 1; page <= 20; page++) {
+    const { data, error } = await service.auth.admin.listUsers({ page, perPage: 200 });
+    if (error) throw error;
+    const found = data.users.find((u) => (u.email || "").toLowerCase() === email);
+    if (found) return found;
+    if (data.users.length < 200) return null;
+  }
+  return null;
+}
+
+async function bootstrap(body: Record<string, unknown>) {
+  const setupCode = Deno.env.get("SETUP_CODE") || "";
+  if (setupCode.length < 8) return fail(400, "First-time setup isn’t switched on. Add the SETUP_CODE secret in Supabase (Edge Functions → Secrets).");
+  if ((await adminIds()).size > 0) return fail(409, "This website already has an admin. Please sign in instead.");
+  if (!(await sameSecret(String(body.code || "").trim(), setupCode))) {
+    await new Promise((r) => setTimeout(r, 1500)); // slow down guessing
+    return fail(403, "That setup code isn’t right.");
+  }
+  const email = String(body.email || "").trim().toLowerCase();
+  const name = String(body.name || "").trim().slice(0, 120);
+  const password = String(body.password || "");
+  if (!EMAIL.test(email)) return fail(400, "Please enter a valid email address.");
+  if (password.length < 10) return fail(400, "Use a password of at least 10 characters.");
+
+  const meta = { user_metadata: { name, must_change_password: false }, app_metadata: { role: "admin" } };
+  let userId: string;
+  const { data, error } = await service.auth.admin.createUser({ email, password, email_confirm: true, ...meta });
+  if (error) {
+    if (!/already been registered|already exists/i.test(error.message)) throw error;
+    // An account with this email exists (e.g. from an earlier sign-up): take it over.
+    const existing = await findUserByEmail(email);
+    if (!existing) throw error;
+    const { error: updateError } = await service.auth.admin.updateUserById(existing.id, { password, email_confirm: true, ...meta });
+    if (updateError) throw updateError;
+    userId = existing.id;
+  } else {
+    userId = data.user.id;
+  }
+  const { error: adminError } = await service.from("admins").upsert({ user_id: userId, email }, { onConflict: "user_id" });
+  if (adminError) throw adminError;
+  await audit({ id: userId, email }, "create", email, { role: "admin", firstAdmin: true });
+  return reply(200, { ok: true, email });
 }
 
 async function adminIds() {
@@ -107,10 +167,28 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
   if (req.method !== "POST") return fail(405, "Method not allowed.");
 
+  const body = await req.json().catch(() => ({}));
+
+  // Public: is first-time setup still needed? (Reveals nothing else.)
+  if (body.action === "setupStatus") {
+    try {
+      return reply(200, { needsSetup: (await adminIds()).size === 0 });
+    } catch {
+      return fail(500, "Couldn’t check setup status.");
+    }
+  }
+  if (body.action === "bootstrap") {
+    try {
+      return await bootstrap(body);
+    } catch (err) {
+      console.error("bootstrap error", err instanceof Error ? err.message : err);
+      return fail(500, "Something went wrong. Please try again.");
+    }
+  }
+
   const caller = await callerFrom(req);
   if (!caller) return fail(403, "Only admins can manage people. Please sign in again.");
 
-  const body = await req.json().catch(() => ({}));
   try {
     switch (body.action) {
       case "list":
