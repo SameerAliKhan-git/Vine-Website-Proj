@@ -51,7 +51,7 @@ jobs:
         env:
           VITE_SUPABASE_URL: https://bkcaozczhiyxlkghtidl.supabase.co
           VITE_SUPABASE_PUBLISHABLE_KEY: sb_publishable_Ml6UEqB-yxj9yiU5ZrYBSQ_3DT35sp1
-          VITE_SITE_URL: https://vine-india.pages.dev
+          VITE_SITE_URL: https://thevineindia.org
           VITE_SITE_NAME: Vine India
           VITE_SITE_DESCRIPTION: A place to grow in faith, family and fellowship. Join us on Sunday, in a cell group, or online.
 
